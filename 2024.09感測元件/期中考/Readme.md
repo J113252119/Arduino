@@ -66,6 +66,5 @@ void loop() {
     tm1637.display(2,dig2);       //十位數 十位 個位 = 濕度
     tm1637.display(3,dig1);       //個位數
   }
-}
 
 ```
