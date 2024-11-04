@@ -11,11 +11,10 @@
 ## 電路圖
 >![](https://github.com/J113252119/Arduino/blob/main/2024.09感測元件/期中考/期中作業電路圖.JPG?raw=true)
 
+## Arduinot程式碼函式庫下載
+>![](https://github.com/J113252119/Arduino/blob/main/2024.09感測元件/期中考/Arduinot%20TM1637程式碼函式庫.JPG?raw=true)
 
-## Arduinot程式碼函式庫下載DHT libary
->![](https://github.com/derricktsai0904/Course/blob/main/2024.09%E6%84%9F%E6%B8%AC%E5%85%83%E4%BB%B6/DHT11%E6%BA%AB%E6%BF%95%E5%BA%A6/DHT11Lib.jpg?raw=true)
-
->![](https://github.com/derricktsai0904/Course/blob/main/2024.09%E6%84%9F%E6%B8%AC%E5%85%83%E4%BB%B6/DHT11%2BTM1637/TM1637_Lib.jpg?raw=true)
+>![](https://github.com/J113252119/Arduino/blob/main/2024.09感測元件/期中考/Arduinot%20DHT11程式碼函式庫.JPG?raw=true)
 
 ## 程式說明
 
