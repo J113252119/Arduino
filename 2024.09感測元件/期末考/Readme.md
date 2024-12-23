@@ -21,48 +21,47 @@
 
 ## 程式說明
 
-[以下程式來源 DHT11.ino ]:[https://github.com/derricktsai0904/Arduino/blob/master/04%20NodeMCU/LEDControl/LED_Control.ino](https://github.com/derricktsai0904/Course/blob/main/2024.09%E6%84%9F%E6%B8%AC%E5%85%83%E4%BB%B6/Arduino%20LED%E9%9C%B9%E9%9D%82%E7%87%88/LED_Control.ino) "LED_Control.ino"
-[以下程式來源 DHT11.ino ]
-``` arduino
-#include "DHT.h"
-#include "TM1637.h"        //主程式需要程式庫 “TM1637.h”
+#include <DHT.h>
+#include <TM1637Display.h>
 
-#define DHTPIN 8   
-#define DHTTYPE DHT11
-#define CLK 3              //模組的CLK 接 Nano pin 3
-#define DIO 2              //模組的DIO 接 Nano pin 2
+// 定義引腳
+#define DHTPIN 2       // DHT11資料引腳
+#define DHTTYPE DHT11  // 定義DHT型號為DHT11
+#define CLK 3          // TM1637時鐘引腳
+#define DIO 4          // TM1637資料引腳
+#define BUZZER 5       // 蜂鳴器引腳
 
-TM1637 tm1637(CLK,DIO);    //宣告顯示晶片涵式庫
+// 初始化DHT和TM1637
 DHT dht(DHTPIN, DHTTYPE);
-
-int dig1 = 0;
-int dig2 = 0;
-int dig3 = 0;
-int dig4 = 0;
+TM1637Display display(CLK, DIO);
 
 void setup() {
   Serial.begin(9600);
   dht.begin();
-
-  tm1637.init();
-  tm1637.set(BRIGHT_TYPICAL);
+  display.setBrightness(0x0f); // 設定顯示亮度
+  pinMode(BUZZER, OUTPUT);
 }
 
 void loop() {
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-  if (isnan(t) || isnan(h)) {
-    Serial.println("Failed to read from DHT");
-    }
-  else {
-    //int dig1 = 0, dig2 = 0, dig3 = 0, dig4 = 0;
-    dig4 = (t / 10);
-    dig3 = t - ( dig4 * 10);
+  
+  // 檢查是否成功讀取
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
 
-    dig2 = (h / 10);
-    dig1 = h - ( dig2 * 10 );
-    
-    tm1637.display(0,dig4);       //千位數  千位 百位 = 溫度
-    tm1637.display(1,dig3);       //百位數
+  // 顯示溫度在TM1637上
+  display.showNumberDec(t, false);
 
-    tm1637.display(2,dig2);       //十位數 十位 個位 = 濕度
+  // 判斷溫度是否達到40度，並啟動蜂鳴器
+  if (t >= 40) {
+    digitalWrite(BUZZER, HIGH); // 開啟蜂鳴器
+  } else {
+    digitalWrite(BUZZER, LOW); // 關閉蜂鳴器
+  }
+
+  delay(2000); // 每2秒更新一次
+}
+
