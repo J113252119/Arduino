@@ -19,6 +19,9 @@
 
 >![](https://github.com/J113252119/Arduino/blob/main/2024.09感測元件/期中考/Arduinot%20DHT11程式碼函式庫.JPG?raw=true)
 
+## 流程圖
+>![](https://github.com/J113252119/Arduino/blob/main/2024.09%E6%84%9F%E6%B8%AC%E5%85%83%E4%BB%B6/%E6%9C%9F%E6%9C%AB%E8%80%83/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E6%A5%AD%E6%B5%81%E7%A8%8B%E5%9C%96.JPG?raw=true))
+
 ## 程式說明
 [以下程式來源 DHT11.ino ]:[https://github.com/derricktsai0904/Arduino/blob/master/04%20NodeMCU/LEDControl/LED_Control.ino](https://github.com/derricktsai0904/Course/blob/main/2024.09%E6%84%9F%E6%B8%AC%E5%85%83%E4%BB%B6/Arduino%20LED%E9%9C%B9%E9%9D%82%E7%87%88/LED_Control.ino) "LED_Control.ino"
 [以下程式 ]
