@@ -83,7 +83,7 @@ void loop() {
     tm1637.display(t, false);
 
   // 判斷溫度是否達到40度，並啟動蜂鳴器
-  if (t >= 40) {
+  if (t >= 30) {
     digitalWrite(BUZZER, HIGH); // 開啟蜂鳴器
   } else {
     digitalWrite(BUZZER, LOW); // 關閉蜂鳴器
